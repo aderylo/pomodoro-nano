@@ -1,5 +1,6 @@
 #include <LiquidCrystal_I2C.h>
 #include <Arduino.h>
+#include <string>
 
 byte fullBlock[8] = {
     0b11111,
@@ -27,22 +28,30 @@ class Pomodoro{
 
     void start()
     {
-      _start_time = millis();
-      _total_time = 25 * 60 * 1000;
+      _start_time = millis() / 1000;
+      _remaining_time = _total_time = 10 * 60;
     }
 
     void tick(){
       _lcd.clear();
-      _lcd.setCursor(0, 0);
-      _lcd.print("Dupa!");
       updateTime();
+      printFocusInfo(); 
       printProgressBar();
     }
 
   private:
+    void printFocusInfo(){
+      uint8_t minutes = _remaining_time / 60;
+      uint8_t seconds = _remaining_time % 60;
+      std::string focus_info = "Focus!" 
+        + std::to_string(minutes) + ":" + std::to_string(seconds); 
+      _lcd.setCursor(0, 0);
+      _lcd.print(focus_info.c_str());
+    }
+
     void printProgressBar(){
-      uint8_t full_blocks = min(_remaining_time * _cols / _total_time, _cols);
-      for(uint8_t i = 0; i < full_blocks; i++){
+      uint64_t full_blocks = min(_remaining_time * _cols / _total_time, _cols);
+      for(uint64_t i = 0; i < full_blocks; i++){
         _lcd.setCursor(i, 1);
         _lcd.write((byte)0);
       }
@@ -54,7 +63,8 @@ class Pomodoro{
 
     void updateTime()
     {
-      _remaining_time = _total_time - (millis() - _start_time);
+      uint64_t current_time = millis() / 1000;
+      _remaining_time = _total_time - (current_time - _start_time);
     }
 
     void initCustomChars()
@@ -66,7 +76,6 @@ class Pomodoro{
         {
           fullBlock[j] = fullBlock[j] << 1;
         }
-
 
         _lcd.createChar(i, fullBlock);
       }
@@ -85,6 +94,7 @@ Pomodoro pomodoro;
 void setup()
 {
  pomodoro.init(); 
+ pomodoro.start();
 }
 
 
