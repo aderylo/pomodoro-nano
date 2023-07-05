@@ -1,5 +1,7 @@
-How to build PlatformIO based project
-=====================================
+#  PomodoroNano
+Arduino Nano 33 IOT based pomodoro timer. 
+
+## Running 
 
 1. [Install PlatformIO Core](https://docs.platformio.org/page/core.html)
 2. Download [development platform with examples](https://github.com/platformio/platform-atmelsam/archive/develop.zip)
@@ -7,9 +9,6 @@ How to build PlatformIO based project
 4. Run these commands:
 
 ```shell
-# Change directory to example
-$ cd platform-atmelsam/examples/arduino-blink
-
 # Build project
 $ pio run
 
