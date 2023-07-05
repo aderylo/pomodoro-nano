@@ -1,0 +1,87 @@
+//
+// !!! WARNING !!! AUTO-GENERATED FILE!
+// PLEASE DO NOT MODIFY IT AND USE "platformio.ini":
+// https://docs.platformio.org/page/projectconf/section_env_build.html#build-flags
+//
+{
+    "configurations": [
+        {
+            "name": "PlatformIO",
+            "includePath": [
+                "/home/aderylo/Documents/PlatformIO/Projects/wifi-pomodoro/include",
+                "/home/aderylo/Documents/PlatformIO/Projects/wifi-pomodoro/src",
+                "/home/aderylo/Documents/PlatformIO/Projects/wifi-pomodoro/.pio/libdeps/nano_33_iot/LiquidCrystal_I2C",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/Wire",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/cores/arduino/api/deprecated",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/cores/arduino/api/deprecated-avr-comp",
+                "/home/aderylo/.platformio/packages/framework-cmsis@1.40500.0/CMSIS/Include",
+                "/home/aderylo/.platformio/packages/framework-cmsis-atmel/CMSIS/Device/ATMEL",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/cores/arduino",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/variants/nano_33_iot",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/HID",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/I2S/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SAMD_AnalogCorrection/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SAMD_BootloaderUpdater/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SBU/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SDU/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SFU/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SNU/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SPI",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SSU/src",
+                "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/USBHost/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/aderylo/Documents/PlatformIO/Projects/wifi-pomodoro/include",
+                    "/home/aderylo/Documents/PlatformIO/Projects/wifi-pomodoro/src",
+                    "/home/aderylo/Documents/PlatformIO/Projects/wifi-pomodoro/.pio/libdeps/nano_33_iot/LiquidCrystal_I2C",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/Wire",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/cores/arduino/api/deprecated",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/cores/arduino/api/deprecated-avr-comp",
+                    "/home/aderylo/.platformio/packages/framework-cmsis@1.40500.0/CMSIS/Include",
+                    "/home/aderylo/.platformio/packages/framework-cmsis-atmel/CMSIS/Device/ATMEL",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/cores/arduino",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/variants/nano_33_iot",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/HID",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/I2S/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SAMD_AnalogCorrection/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SAMD_BootloaderUpdater/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SBU/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SDU/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SFU/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SNU/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SPI",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/SSU/src",
+                    "/home/aderylo/.platformio/packages/framework-arduino-samd/libraries/USBHost/src",
+                    ""
+                ]
+            },
+            "defines": [
+                "PLATFORMIO=60107",
+                "ARDUINO_SAMD_NANO_33_IOT",
+                "CRYSTALLESS",
+                "__SAMD21G18A__",
+                "ARDUINO=10805",
+                "F_CPU=48000000L",
+                "USBCON",
+                "USB_VID=0x2341",
+                "USB_PID=0x8057",
+                "USB_PRODUCT=\"Arduino NANO 33 IoT\"",
+                "USB_MANUFACTURER=\"Arduino\"",
+                "ARDUINO_ARCH_SAMD",
+                ""
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11",
+            "compilerPath": "/home/aderylo/.platformio/packages/toolchain-gccarmnoneeabi@1.70201.0/bin/arm-none-eabi-gcc",
+            "compilerArgs": [
+                "-mcpu=cortex-m0plus",
+                "-mthumb",
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
