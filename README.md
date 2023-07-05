@@ -1,6 +1,10 @@
 #  PomodoroNano
 Arduino Nano 33 IOT based pomodoro timer. 
 
+## Demo
+Please find attach demo of the project:
+https://youtu.be/D5Yah-L7upg
+
 ## Running 
 
 1. [Install PlatformIO Core](https://docs.platformio.org/page/core.html)
