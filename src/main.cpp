@@ -2,6 +2,8 @@
 #include <Arduino.h>
 #include <string>
 
+#define SERIAL_PORT 9600
+
 byte fullBlock[8] = {
     0b11111,
     0b11111,
@@ -19,11 +21,24 @@ class Pomodoro{
       _cols = 16;
     }
 
-
     void init(){
       _lcd.init();
       _lcd.backlight();
       initCustomChars();
+      Serial.begin(SERIAL_PORT);
+    }
+
+    void setup(){
+      std::string msg; 
+
+      _lcd.clear();
+      _lcd.setCursor(0, 0);
+      _lcd.print("Pomodoro Timer"); 
+      delay(1000); 
+
+      _time_per_session = inputIntRequest("Specify time per session on Serial:" + std::to_string(SERIAL_PORT));
+      _time_per_break = inputIntRequest("Specify time per break on Serial:" + std::to_string(SERIAL_PORT));
+      _time_per_long_break = inputIntRequest("Specify time per long break on Serial:" + std::to_string(SERIAL_PORT));
     }
 
     void start()
@@ -34,7 +49,6 @@ class Pomodoro{
       _total_sessions = 4;
       _time_per_break = 1 * 5;
       _time_per_long_break = 2 * 5;
-      _time_per_session = 1 * 5;
       _remaining_time = _total_time = _time_per_session;
     }
 
@@ -53,6 +67,27 @@ class Pomodoro{
     }
 
   private:
+    uint64_t inputIntRequest(std::string msg){
+      uint64_t result;
+      _lcd.clear();
+      _lcd.setCursor(0, 0);
+      _lcd.print(msg.c_str());
+
+      while(true){
+        if(Serial.available()){
+          arduino::String input = Serial.readStringUntil('\n');
+          result = std::stoi(input.c_str());
+          break;
+        }
+      }
+
+      _lcd.clear();
+
+      return result;
+    }
+
+
+
     void printFocusInfo(){
       std::string focus_info = "Focus!" 
         + getRemainingTime();
@@ -150,15 +185,26 @@ class Pomodoro{
     uint8_t _sessions_completed;
 }; 
 
+
+
+
+
+
 Pomodoro pomodoro;
+
+
+
 void setup()
 {
+ Serial.begin(9600);
  pomodoro.init(); 
+ pomodoro.setup();
  pomodoro.start();
 }
 
 
 void loop(){
   pomodoro.tick();
+  Serial.println("Tick");
   delay(1000);
 }
